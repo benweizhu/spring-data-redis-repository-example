@@ -1,13 +1,13 @@
-package me.zeph.springredis.springdataredisexample;
+package me.zeph.spring.data;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringDataRedisExampleApplication {
+public class SpringRedisReactiveApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringDataRedisExampleApplication.class, args);
+        SpringApplication.run(SpringRedisReactiveApplication.class, args);
     }
 
 }
