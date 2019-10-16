@@ -36,6 +36,17 @@ public class StudentController {
     }
 
 
+    @GetMapping(value = "/students")
+    public ResponseEntity<List<Student>> findStudentByGenderAndName(@RequestParam String name, @RequestParam String gender) {
+        return new ResponseEntity<>(studentRepository.findByNameAndGender(name, gender), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/students/delete/{id}")
+    public ResponseEntity<List<Student>> findStudentByGenderAndName(@PathVariable String id) {
+        studentRepository.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
     @GetMapping(value = "/students/gender/{gender}")
     public ResponseEntity<List<Student>> getStudentByGender(@PathVariable String gender) {
         List<Student> studentOptional = studentRepository.findByGender(Student.Gender.valueOf(gender));
