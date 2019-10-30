@@ -3,6 +3,7 @@ package me.zeph.spring.data.redis.model;
 import java.io.Serializable;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Reference;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.index.Indexed;
 
@@ -20,6 +21,7 @@ public class Student implements Serializable {
     @Indexed
     private Gender gender;
     private int grade;
+    private Course course;
 
     public Student() {
     }
@@ -61,6 +63,14 @@ public class Student implements Serializable {
 
     public void setGrade(int grade) {
         this.grade = grade;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     @Override

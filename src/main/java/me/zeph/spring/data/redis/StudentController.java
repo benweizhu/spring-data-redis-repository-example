@@ -1,5 +1,6 @@
 package me.zeph.spring.data.redis;
 
+import me.zeph.spring.data.redis.model.Course;
 import me.zeph.spring.data.redis.model.Student;
 import me.zeph.spring.data.redis.repo.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,7 @@ public class StudentController {
 
     @PostMapping(value = "/students")
     public ResponseEntity<Student> saveStudent(@RequestBody Student student) {
+        student.setCourse(new Course("English", 10));
         Student savedStudent = studentRepository.save(student);
         return new ResponseEntity<>(savedStudent, HttpStatus.OK);
     }
